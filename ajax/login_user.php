@@ -21,8 +21,20 @@
 		$DateStart = date(format: "Y-m-d H:i:s");
 
 		$Sql = "INSERT INTO `session`(`idUser`,`ip`,`DateStart`,`DateNow`) VALUES ({$id}, '{$Ip}','{$DateStart}', '{$DateStart}')";
-		echo $Sql;
 		$mysqli->query(query: $Sql);
+
+		$Sql = "SELECT `id` FROM `session` WHERE `DateStart` = '{$DateStart}';";
+		$Query = $mysqli->query(query: $Sql);
+		$Read = $Query->fetch_assoc();
+		$_SESSION["IdSession"] = $Read["id"];
+
+
+
+		$Sql = "INSERT INTO".
+			"`logs`(`ip`, `idUser`, `Date`, `TimeOnline`, `Event`)".
+			"VALUES ('{$ip}', {$id}, '{$DateStart}', '00:00:00', 'Пользователь {$login} авторизовался.')";
+		$mysqli->query(query: $Sql);
+
 	}
 	// echo md5(md5($id));
 ?>

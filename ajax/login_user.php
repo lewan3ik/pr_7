@@ -36,5 +36,5 @@
 		$mysqli->query(query: $Sql);
 
 	}
-	// echo md5(md5($id));
+	echo md5(md5($id));
 ?>

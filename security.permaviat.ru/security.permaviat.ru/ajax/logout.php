@@ -33,7 +33,7 @@ $TimeDelta = gmdate("H:i:s", $TimeDeltaSeconds);
 $Date = date("Y-m-d H:i:s");
 $Login = $Read["login"];
 
-// Логируем с подготовленным запросом
+
 $SqlLog = "INSERT INTO `logs`(`Ip`, `IdUser`, `Date`, `TimeOnline`, `Event`)
            VALUES (?, ?, ?, ?, ?)";
 $stmtLog = $mysqli->prepare($SqlLog);

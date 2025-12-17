@@ -103,7 +103,7 @@
 						sender.parentElement.parentElement.children[2].innerHTML += "<div>" + Message + "</div>";
 
 					},
-					// функция ошибки
+
 					error: function( ){
 						console.log('Системная ошибка!');
 					}
